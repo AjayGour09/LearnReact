@@ -9,6 +9,7 @@ function App() {
   return (
     <div>
       <MsgBox userName="Ajay" textColor="red" />
+      <MsgBox userName="Ajay" textColor="red" />
       <MsgBox userName="Arun" textColor="yellow" />
       <MsgBox userName="Mona" textColor="pink" />
       <MsgBox userName="Teena" textColor="blue" />
