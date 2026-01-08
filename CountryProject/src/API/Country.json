@@ -1,0 +1,79 @@
+[
+     {
+    "id": 0,
+    "countryName": "World",
+    "capital": "Null",
+    "population": "Infinity",
+    "interestingFact": "There’s a planet made almost entirely of diamonds"
+  },
+  {
+    "id": 1,
+    "countryName": "India",
+    "capital": "New Delhi",
+    "population": "1.43 Billion",
+    "interestingFact": "India is the largest democracy in the world."
+  },
+  {
+    "id": 2,
+    "countryName": "United States",
+    "capital": "Washington, D.C.",
+    "population": "331 Million",
+    "interestingFact": "The US has the largest economy in the world."
+  },
+  {
+    "id": 3,
+    "countryName": "China",
+    "capital": "Beijing",
+    "population": "1.41 Billion",
+    "interestingFact": "China has the longest wall ever built by humans."
+  },
+  {
+    "id": 4,
+    "countryName": "Japan",
+    "capital": "Tokyo",
+    "population": "125 Million",
+    "interestingFact": "Japan has the highest life expectancy in the world."
+  },
+  {
+    "id": 5,
+    "countryName": "France",
+    "capital": "Paris",
+    "population": "67 Million",
+    "interestingFact": "France is the most visited country in the world."
+  },
+  {
+    "id": 6,
+    "countryName": "Germany",
+    "capital": "Berlin",
+    "population": "83 Million",
+    "interestingFact": "Germany is known for its world-class automobile industry."
+  },
+  {
+    "id": 7,
+    "countryName": "Australia",
+    "capital": "Canberra",
+    "population": "26 Million",
+    "interestingFact": "Australia is both a country and a continent."
+  },
+  {
+    "id": 8,
+    "countryName": "Brazil",
+    "capital": "Brasília",
+    "population": "214 Million",
+    "interestingFact": "Brazil is home to the Amazon rainforest."
+  },
+  {
+    "id": 9,
+    "countryName": "Canada",
+    "capital": "Ottawa",
+    "population": "38 Million",
+    "interestingFact": "Canada has the longest coastline in the world."
+  },
+  {
+    "id": 10,
+    "countryName": "United Kingdom",
+    "capital": "London",
+    "population": "67 Million",
+    "interestingFact": "The UK has no written constitution."
+  }
+]
