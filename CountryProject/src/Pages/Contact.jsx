@@ -5,6 +5,7 @@ export const Contact = () => {
     fullname: "",
     email: "",
     number: "",
+    message:""
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,6 +18,7 @@ export const Contact = () => {
       fullname: "",
       email: "",
       number: "",
+      message:""
     });
   };
 
@@ -35,9 +37,9 @@ export const Contact = () => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-center mt-2  border w-[460px] h-[350px]">
+        <div className="flex items-center justify-center mt-10  border w-[460px] h-[450px] ml-[450px] rounded-[10px]">
           <form action="" onSubmit={handleSubmt} onReset={handleclearform}>
-            <div className="flex gap-5 mt-5 ">
+            <div className="flex gap-5 mt-18 ">
               <label htmlFor="fullname" className="text-[18px]">
                 FullName :
               </label>
@@ -82,7 +84,19 @@ export const Contact = () => {
                 required
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-10">
+              <p>message</p>
+              <textarea
+                name="message"
+                id="message"
+                rows="1"
+                className="border p-8 mt-2.5"
+                autoComplete="false"
+                onChange={handlechange}
+                value={formdata.message}
+              ></textarea>
+            </div>
+            <div className="flex gap-2 mb-10">
               <button
                 type="submit"
                 disabled={isLoading}
