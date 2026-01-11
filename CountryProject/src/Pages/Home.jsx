@@ -9,7 +9,7 @@ export const Home = () => {
         <h2 className="text-4xl">Explore the world, One <br />Country at a Time</h2>
         <h2></h2>
         <p className="text-[18px] mt-4">Discover the History,Culture and beauty of every nation, Sort, Search and <br /> <span>filter through Countries to find the details you need.</span></p>
-        <div className="flex gap-3 border border-gray-700 w-[160px] p-3 mt-4 rounded-2xl">
+        <div className="flex gap-3 border border-blue-900 w-[160px] p-3 mt-4 rounded-2xl animate-pulse text-red-900 ">
           <button>Start Exploring</button>
          <p className="mt-1.5"> <GoArrowRight /></p>
         </div>
