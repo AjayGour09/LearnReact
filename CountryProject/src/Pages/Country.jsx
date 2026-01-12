@@ -25,7 +25,7 @@ export const Country = () => {
 
   return (
     <div>
-      <ul className="grid grid-cols-4 gap-4">
+      <ul className="grid grid-cols-4 gap-8 p-12 pl-25 bg-[var(--color-primary)] mt-6 ">
         {countries.map((curCountry, index) => (
           <CountryCard country={curCountry} key={index} />
         ))}
