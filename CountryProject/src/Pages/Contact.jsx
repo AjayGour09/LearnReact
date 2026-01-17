@@ -37,7 +37,7 @@ export const Contact = () => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-center mt-10  border w-[460px] h-[450px] ml-[450px] rounded-[10px]">
+        <div className="flex items-center justify-center mt-20  border w-[460px] h-[450px] ml-[450px] rounded-[10px]">
           <form action="" onSubmit={handleSubmt} onReset={handleclearform}>
             <div className="flex gap-5 mt-18 ">
               <label htmlFor="fullname" className="text-[18px]">
