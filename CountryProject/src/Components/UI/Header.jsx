@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import SignUp from "../../Pages/SignUp"
 export const Header = () =>{
     return (
         <>
@@ -21,6 +22,9 @@ export const Header = () =>{
                     </li>
                     <li>
                         <NavLink to="contact">Contact</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="signup">SignUp</NavLink>
                     </li>
                 </ul>
             </div>

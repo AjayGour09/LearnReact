@@ -26,6 +26,7 @@ export const Country = () => {
     const filtered = countries.filter((country) =>
       country.name.common.toLowerCase().includes(searchText.toLowerCase()),
     );
+
     setFilteredCountries(filtered);
   };
   const sortAsc = () => {
@@ -43,13 +44,13 @@ export const Country = () => {
   if (loading) return <h1>Loading...</h1>;
   return (
     <div className="bg-[var(--color-primary)]">
-      <div className="flex gap-4 px-12 pt-16">
+      <div className="flex gap-10 px-12 pt-16">
         <input
           type="text"
           placeholder="Search country..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          className="px-4 py-2 border rounded"
+          className="px-4 py-2 border border-amber-50 rounded w-[950px] text-amber-50"
         />
         <button
           onClick={handleSearch}
