@@ -7,6 +7,7 @@ import { Contact } from "./Pages/Contact";
 import { ErrorPage } from "./Pages/ErrorPage";
 import CountryDeatails from "./Components/Layout/CountryDeatails";
 import SignUp from "./Pages/SignUp";
+import Login from "./Pages/Login";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:"signup",
         element:<SignUp/>,
+      },
+       {
+        path:"login",
+        element:<Login/>,
       },
     ],
   },
