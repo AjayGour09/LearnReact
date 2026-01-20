@@ -8,6 +8,7 @@ import { ErrorPage } from "./Pages/ErrorPage";
 import CountryDeatails from "./Components/Layout/CountryDeatails";
 import SignUp from "./Pages/SignUp";
 
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -7,6 +7,7 @@ export const Contact = () => {
     number: "",
     message:""
   });
+  
   const [isLoading, setIsLoading] = useState(false);
 
   const handlechange = (e) => {
