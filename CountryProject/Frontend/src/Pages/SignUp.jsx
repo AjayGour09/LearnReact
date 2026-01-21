@@ -58,6 +58,7 @@ const SignUp = () => {
                   value={formData.Username}
                   onChange={handleChange}
                   className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
+                  required
                 />
               </div>
               <div>
@@ -69,6 +70,7 @@ const SignUp = () => {
                   onChange={handleChange}
                   className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
                   placeholder="Email"
+                  required
                 />
               </div>
               <div>
@@ -80,6 +82,7 @@ const SignUp = () => {
                   onChange={handleChange}
                   placeholder="Phone"
                   className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
+                  required
                 />
               </div>
               <div>
@@ -91,6 +94,7 @@ const SignUp = () => {
                   onChange={handleChange}
                   placeholder="Password"
                   className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
+                  required
                 />
               </div>
               <div>
@@ -102,6 +106,7 @@ const SignUp = () => {
                   onChange={handleChange}
                   placeholder="Confirm Your Password"
                   className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
+                  required
                 />
               </div>
               <div className="flex justify-center gap-7 mt-3">

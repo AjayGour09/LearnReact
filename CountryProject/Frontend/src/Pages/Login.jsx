@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="mt-20 flex justify-center border w-100 ml-130 rounded bg-blue-700 border-amber-50">
+      <div className="mt-20 flex justify-center border w-100 ml-130 rounded bg-blue-700 border-amber-50" >
         <form action="" onSubmit={submitData} onReset={Cleardata}>
           <div>
             <input
@@ -45,6 +45,7 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               className="border text-amber-50 border-blue-900 w-90 m-3 p-2 rounded"
+              required
             />
           </div>
           <div>
@@ -56,6 +57,7 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
               className="border text-amber-50 border-blue-900 w-90 m-3 p-2 rounded"
+              required
             />
           </div>
           <div className="flex justify-center gap-3 ">
