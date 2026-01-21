@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const SignUp = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,15 +28,24 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setMessage("");
 
     try {
-      console.log(formData);
+      const res = await axios.post(
+        "http://localhost:4500/auth/signup",
+        formData,
+        { withCredentials: true }
+      );
+
+      setMessage(res.data.message);
       ClearForm();
     } catch (error) {
-      console.log(error.message);
+      setMessage(
+        error.response?.data?.message || "Something went wrong"
+      );
     } finally {
       setIsLoading(false);
     }
@@ -46,79 +57,59 @@ const SignUp = () => {
         <h2 className="flex items-center justify-center text-2xl text-pink-600">
           SignUp Page
         </h2>
+
         <div className="flex justify-center mt-5">
-          <form action="" onSubmit={handleSubmit} onReset={ClearForm}>
-            <div className="border w-[500px] h-[440px] rounded-[10px] bg-green-900">
+          <form onSubmit={handleSubmit} onReset={ClearForm}>
+            <div className="border w-[500px] h-[470px] rounded-[10px] bg-green-900">
+
+              {message && (
+                <p className="text-center text-white mt-3">{message}</p>
+              )}
+
               <div className="mt-5">
                 <input
                   type="text"
                   name="Username"
-                  id="Username"
                   placeholder="UserName"
                   value={formData.Username}
                   onChange={handleChange}
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
+                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
                   required
                 />
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
-                  placeholder="Email"
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="number"
-                  name="number"
-                  id="number"
-                  value={formData.number}
-                  onChange={handleChange}
-                  placeholder="Phone"
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Password"
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
-                  required
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Confirm Your Password"
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50 "
-                  required
-                />
-              </div>
+
+              <input type="email" name="email" placeholder="Email"
+                value={formData.email} onChange={handleChange}
+                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
+                required />
+
+              <input type="number" name="number" placeholder="Phone"
+                value={formData.number} onChange={handleChange}
+                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
+                required />
+
+              <input type="password" name="password" placeholder="Password"
+                value={formData.password} onChange={handleChange}
+                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
+                required />
+
+              <input type="password" name="confirmPassword" placeholder="Confirm Password"
+                value={formData.confirmPassword} onChange={handleChange}
+                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
+                required />
+
               <div className="flex justify-center gap-7 mt-3">
                 <button
                   type="submit"
-                  className="border-none w-25 bg-blue-400 text-amber-50 p-2 rounded shadow hover:cursor-pointer"
+                  disabled={isLoading}
+                  className="border-none w-25 bg-blue-400 text-white p-2 rounded"
                 >
-                  Submit
+                  {isLoading ? "Submitting..." : "Submit"}
                 </button>
+
                 <button
                   type="reset"
-                  className="border-none w-25 bg-red-600 text-amber-50 p-2 rounded shadow hover:cursor-pointer"
+                  className="border-none w-25 bg-red-600 text-white p-2 rounded"
                 >
                   Reset
                 </button>
