@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCountryData } from "../API/postApi.jsx";
 import CountryCard from "../Components/Layout/CountryCard.jsx";
 
+
 export const Country = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
