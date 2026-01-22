@@ -44,7 +44,7 @@ export const Country = () => {
   };
   if (loading) return <h1>Loading...</h1>;
   return (
-    <div className="bg-[var(--color-primary)]">
+    <div className="bg-[var(--color-primary)] mt-10">
       <div className="flex gap-10 px-12 pt-16">
         <input
           type="text"

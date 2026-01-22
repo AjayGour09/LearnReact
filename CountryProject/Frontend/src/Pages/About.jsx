@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <div className="min-h-screen bg-gray-100 px-6 py-16">
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-gray-800 text-center mb-14">
+      <h2 className="text-4xl font-bold text-gray-800 text-center mt-5 mb-14">
         Here are the interesting facts
         <br />
         <span className="text-gray-500 text-2xl mt-2 block">
