@@ -9,12 +9,11 @@ import CountryDeatails from "./Components/Layout/CountryDeatails";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement:<ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
         element: <Country />,
       },
       {
-         path: "country/:id",
+        path: "country/:id",
         element: <CountryDeatails />,
       },
       {
@@ -37,12 +36,12 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path:"signup",
-        element:<SignUp/>,
+        path: "signup",
+        element: <SignUp />,
       },
-       {
-        path:"login",
-        element:<Login/>,
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
