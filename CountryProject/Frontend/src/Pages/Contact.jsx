@@ -5,9 +5,9 @@ export const Contact = () => {
     fullname: "",
     email: "",
     number: "",
-    message:""
+    message: "",
   });
-  
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handlechange = (e) => {
@@ -19,7 +19,7 @@ export const Contact = () => {
       fullname: "",
       email: "",
       number: "",
-      message:""
+      message: "",
     });
   };
 
@@ -38,66 +38,57 @@ export const Contact = () => {
   return (
     <>
       <div>
-        <div className="flex items-center justify-center mt-20  border w-[460px] h-[450px] ml-[450px] rounded-[10px]">
+        <div className="flex items-center justify-center mt-27 bg-green-900  border w-[460px] h-[450px] ml-[450px] rounded-[10px]  border-pink-500">
           <form action="" onSubmit={handleSubmt} onReset={handleclearform}>
-            <div className="flex gap-5 mt-18 ">
-              <label htmlFor="fullname" className="text-[18px]">
-                FullName :
-              </label>
+            <div className="flex gap-5 mt-5 ">
               <input
                 type="text"
                 name="fullname"
                 id="fullname"
                 placeholder="Enter your Name"
-                className="border p-2 rounded-[5px] mb-1 w-[260px] "
+                className="border p-2 rounded-[5px] mb-1 w-[400px]  border-pink-500 text-pink-50 text-xl font-semibold"
                 value={formdata.fullname}
                 onChange={handlechange}
                 required
               />
             </div>
             <div className="flex gap-5 mt-5">
-              <label htmlFor="email" className="text-[18px]">
-                Email :
-              </label>
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="Enter your Email"
-                className="border p-2 rounded-[5px] mb-1 w-[260px] ml-8"
+                className="border p-2 rounded-[5px] mb-1 w-[400px] border-pink-500  text-pink-50 text-xl font-semibold"
                 value={formdata.email}
                 onChange={handlechange}
                 required
               />
             </div>
             <div className="flex gap-5 mt-5">
-              <label htmlFor="number" className="text-[18px]">
-                Phone :
-              </label>
               <input
                 type="text"
                 name="number"
                 id="number"
                 placeholder="Enter your Phone Number"
-                className="border p-2 rounded-[5px] mb-1 w-[260px] ml-6"
+                className="border p-2 rounded-[5px] mb-1 w-[400px]  border-pink-500  text-pink-50 text-xl font-semibold"
                 value={formdata.number}
                 onChange={handlechange}
                 required
               />
             </div>
             <div className="flex gap-10">
-              <p>message</p>
               <textarea
                 name="message"
                 id="message"
                 rows="1"
-                className="border p-8 mt-2.5"
+                className="border p-2 mt-2.5 w-[400px] h-30  border-pink-500 rounded  text-pink-50 text-xl font-semibold"
                 autoComplete="false"
+                placeholder="Write Your Query Here.."
                 onChange={handlechange}
                 value={formdata.message}
               ></textarea>
             </div>
-            <div className="flex gap-2 mb-10">
+            <div className="flex justify-center gap-4 mb-10">
               <button
                 type="submit"
                 disabled={isLoading}
@@ -108,7 +99,7 @@ export const Contact = () => {
 
               <button
                 type="reset"
-                className="border p-2 rounded-[7px] mt-8 bg-blue-500 text-amber-50 hover:bg-blue-700 shadow hover:transition-transform"
+                className="border p-2 rounded-[7px] mt-8 bg-red-500 text-amber-50 hover:bg-blue-700 shadow hover:transition-transform"
               >
                 Reset Data
               </button>

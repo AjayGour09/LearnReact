@@ -6,15 +6,14 @@ import { AiOutlineGlobal } from "react-icons/ai";
 import { IoIosContact } from "react-icons/io";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { CiLogin } from "react-icons/ci";
+import logo from "../../assets/logo.png";
 export const Header = () => {
   return (
     <>
       <div className="flex items-center justify-around bg-gray-700 p-3 shadow fixed top-0 left-0 right-0 z-10">
         <div>
           <NavLink to="/">
-            <h1 className="text-2xl text-amber-50 mr-70 size-6 animate-bounce ...">
-              World<span className="text-orange-700 font-bold">Tour</span>
-            </h1>
+           <img src={logo} alt="world Image" className="w-12 rounded-4xl animate-pulse" />
           </NavLink>
         </div>
         <div className="text-white">
