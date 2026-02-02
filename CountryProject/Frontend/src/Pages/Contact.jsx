@@ -49,16 +49,28 @@ export const Contact = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-center mt-27 bg-green-900 border w-[460px] h-[450px] ml-[450px] rounded-[10px] border-pink-500">
-        <form onSubmit={handleSubmit} onReset={handleClearForm}>
-          
+    <div className="flex justify-center px-4">
+      <div
+        className="
+          flex items-center justify-center
+          mt-16 md:mt-20 lg:mt-27
+          bg-green-900 border border-pink-500 rounded-[10px]
+          w-full md:w-[500px] lg:w-[460px]
+          h-auto lg:h-[450px]
+        "
+      >
+        <form
+          onSubmit={handleSubmit}
+          onReset={handleClearForm}
+          className="w-full"
+        >
           {responseMessage && (
             <p className="text-center text-white mt-3">
               {responseMessage}
             </p>
           )}
 
+          {/* Inputs */}
           <input
             type="text"
             name="fullname"
@@ -66,7 +78,12 @@ export const Contact = () => {
             value={formData.fullname}
             onChange={handleChange}
             required
-            className="border p-2 mt-5 w-[400px] border-pink-500 text-pink-50 ml-5 rounded"
+            className="
+              border p-2 mt-5
+              w-[90%] md:w-[420px] lg:w-[400px]
+              mx-auto block
+              border-pink-500 bg-transparent text-pink-50 rounded
+            "
           />
 
           <input
@@ -76,7 +93,12 @@ export const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="border p-2 mt-5 w-[400px] border-pink-500 text-pink-50 ml-5 rounded"
+            className="
+              border p-2 mt-5
+              w-[90%] md:w-[420px] lg:w-[400px]
+              mx-auto block
+              border-pink-500 bg-transparent text-pink-50 rounded
+            "
           />
 
           <input
@@ -86,7 +108,12 @@ export const Contact = () => {
             value={formData.number}
             onChange={handleChange}
             required
-            className="border p-2 mt-5 w-[400px] border-pink-500 text-pink-50 ml-5 rounded"
+            className="
+              border p-2 mt-5
+              w-[90%] md:w-[420px] lg:w-[400px]
+              mx-auto block
+              border-pink-500 bg-transparent text-pink-50 rounded
+            "
           />
 
           <textarea
@@ -95,21 +122,28 @@ export const Contact = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            className="border p-2 mt-5 w-[400px] h-26 rounded border-pink-500 text-pink-50 ml-5"
+            className="
+              border p-2 mt-5
+              w-[90%] md:w-[420px] lg:w-[400px]
+              h-28
+              mx-auto block
+              border-pink-500 bg-transparent text-pink-50 rounded
+            "
           />
 
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Buttons */}
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-blue-500 text-white p-2 rounded"
+              className="bg-blue-500 text-white p-2 rounded w-[90%] md:w-auto mx-auto"
             >
               {isLoading ? "Submitting..." : "Submit Data"}
             </button>
 
             <button
               type="reset"
-              className="bg-red-500 text-white p-2 rounded"
+              className="bg-red-500 text-white p-2 rounded w-[90%] md:w-auto mx-auto"
             >
               Reset Data
             </button>

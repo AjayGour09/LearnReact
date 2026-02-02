@@ -18,7 +18,7 @@ const SignUp = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const ClearForm = () => {
+  const clearForm = () => {
     setFormData({
       Username: "",
       email: "",
@@ -41,7 +41,7 @@ const SignUp = () => {
       );
 
       setMessage(res.data.message);
-      ClearForm();
+      clearForm();
     } catch (error) {
       setMessage(
         error.response?.data?.message || "Something went wrong"
@@ -52,73 +52,94 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <div className="pt-15">
-        <h2 className="flex items-center justify-center text-2xl text-pink-600">
-          SignUp Page
-        </h2>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-10 bg-gray-100">
+      
+      <h2 className="text-2xl md:text-3xl text-pink-600 font-bold mb-6">
+        SignUp Page
+      </h2>
 
-        <div className="flex justify-center mt-5">
-          <form onSubmit={handleSubmit} onReset={ClearForm}>
-            <div className="border w-[500px] h-[470px] rounded-[10px] bg-green-900">
+      <form onSubmit={handleSubmit} onReset={clearForm} className="w-full max-w-md">
+        <div className="bg-green-900 rounded-lg p-6 border border-green-700 shadow-lg">
 
-              {message && (
-                <p className="text-center text-white mt-3">{message}</p>
-              )}
+          {message && (
+            <p className="text-center text-white mb-4">{message}</p>
+          )}
 
-              <div className="mt-5">
-                <input
-                  type="text"
-                  name="Username"
-                  placeholder="UserName"
-                  value={formData.Username}
-                  onChange={handleChange}
-                  className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
-                  required
-                />
-              </div>
+          {/* Username */}
+          <input
+            type="text"
+            name="Username"
+            placeholder="UserName"
+            value={formData.Username}
+            onChange={handleChange}
+            required
+            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
+          />
 
-              <input type="email" name="email" placeholder="Email"
-                value={formData.email} onChange={handleChange}
-                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
-                required />
+          {/* Email */}
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
+          />
 
-              <input type="number" name="number" placeholder="Phone"
-                value={formData.number} onChange={handleChange}
-                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
-                required />
+          {/* Phone */}
+          <input
+            type="number"
+            name="number"
+            placeholder="Phone"
+            value={formData.number}
+            onChange={handleChange}
+            required
+            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
+          />
 
-              <input type="password" name="password" placeholder="Password"
-                value={formData.password} onChange={handleChange}
-                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
-                required />
+          {/* Password */}
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
+          />
 
-              <input type="password" name="confirmPassword" placeholder="Confirm Password"
-                value={formData.confirmPassword} onChange={handleChange}
-                className="border w-110 m-3 h-10 rounded p-5 border-green-700 text-amber-50"
-                required />
+          {/* Confirm Password */}
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
+          />
 
-              <div className="flex justify-center gap-7 mt-3">
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="border-none w-25 bg-blue-400 text-white p-2 rounded"
-                >
-                  {isLoading ? "Submitting..." : "Submit"}
-                </button>
+          {/* Buttons */}
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full md:w-auto bg-blue-400 text-white rounded p-2 shadow hover:bg-blue-500"
+            >
+              {isLoading ? "Submitting..." : "Submit"}
+            </button>
 
-                <button
-                  type="reset"
-                  className="border-none w-25 bg-red-600 text-white p-2 rounded"
-                >
-                  Reset
-                </button>
-              </div>
-            </div>
-          </form>
+            <button
+              type="reset"
+              className="w-full md:w-auto bg-red-600 text-white rounded p-2 shadow hover:bg-red-700"
+            >
+              Reset
+            </button>
+          </div>
         </div>
-      </div>
-    </>
+      </form>
+    </div>
   );
 };
 

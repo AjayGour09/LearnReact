@@ -2,42 +2,46 @@ import { NavLink } from "react-router-dom";
 
 const CountryCard = ({ country }) => {
   const { flags, name, population, region, capital } = country;
+
   return (
-    <>
-      <li className="border bg-[var(--color-background)] p-3 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl hover:shadow-gray-400 duration-300">
-        <div>
-          <img src={flags.png} alt={flags.alt} className="w-80 h-30 rounded" />
-          <div>
-            <p className="font-bold text-[24px] pt-1.5">
-              {name.common.length > 10
-                ? name.common.substring(0, 10) + "..."
-                : name.common}
-            </p>
-          </div>
-          <div>
-            <p>
-              {" "}
-              <b className="text-[16px] text-gray-600">Population :</b>{" "}
-              {population}
-            </p>
-          </div>
-          <div>
-            <p>
-              <b className="text-[16px] text-gray-600">Region :</b> {region}
-            </p>
-          </div>
-          <div>
-            <p>
-              <b className="text-[16px] text-gray-600">Capital :</b>{" "}
-              {capital[0]}
-            </p>
-          </div>
-          <div className="flex justify-center border m-2 p-2 mt-4 rounded-lg  hover:bg-gray-00  border-gray-700 text-[18px] text-white bg-[var(--color-primary)]">
-            <NavLink to={`/country/${name.common}`}>More Info</NavLink>
-          </div>
-        </div>
-      </li>
-    </>
+    <li className="border bg-[var(--color-background)] p-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 ">
+      
+      {/* Flag Image */}
+      <img
+        src={flags.png}
+        alt={flags.alt}
+        className="w-full h-48 md:h-40 object-cover rounded mt-5"
+      />
+
+      {/* Country Name */}
+      <p className="font-bold text-lg md:text-xl pt-2">
+        {name.common.length > 12
+          ? name.common.substring(0, 12) + "..."
+          : name.common}
+      </p>
+
+      {/* Country Details */}
+      <p className="text-sm text-gray-600 mt-1">
+        <b>Population:</b> {population.toLocaleString()}
+      </p>
+      <p className="text-sm text-gray-600">
+        <b>Region:</b> {region}
+      </p>
+      <p className="text-sm text-gray-600">
+        <b>Capital:</b> {capital ? capital[0] : "N/A"}
+      </p>
+
+      {/* More Info Button */}
+      <div className="flex justify-center mt-4">
+        <NavLink
+          to={`/country/${name.common}`}
+          className="w-full text-center bg-[var(--color-primary)] text-white p-2 rounded-lg 
+                     hover:bg-blue-600 transition-colors duration-300"
+        >
+          More Info
+        </NavLink>
+      </div>
+    </li>
   );
 };
 
