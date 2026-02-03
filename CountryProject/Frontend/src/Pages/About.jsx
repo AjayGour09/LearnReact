@@ -30,7 +30,7 @@ export const About = () => {
                 <p className="text-sm text-gray-200 mb-1">
                   <span className="font-medium">Capital:</span> {c.capital}
                 </p>
-                <p className="text-sm text-gray-200">
+                <p className="text-sm text-gray-300">
                   <span className="font-medium">Population:</span>{" "}
                   {c.population}
                 </p>
