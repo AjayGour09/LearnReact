@@ -49,13 +49,13 @@ export const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center px-4">
+    <div className="flex justify-center px-4 ">
       <div
         className="
           flex items-center justify-center
-          mt-16 md:mt-20 lg:mt-27
+          mt-26 md:mt-20 m lg:mt-27
           bg-green-900 border border-pink-500 rounded-[10px]
-          w-full md:w-[500px] lg:w-[460px]
+          w-full md:w-[500px] lg:w-[460px] 
           h-auto lg:h-[450px]
         "
       >
@@ -65,7 +65,7 @@ export const Contact = () => {
           className="w-full"
         >
           {responseMessage && (
-            <p className="text-center text-white mt-3">
+            <p className="text-center text-white mt-3 ">
               {responseMessage}
             </p>
           )}
@@ -95,7 +95,7 @@ export const Contact = () => {
             required
             className="
               border p-2 mt-5
-              w-[90%] md:w-[420px] lg:w-[400px]
+              w-[90%] md:w-[420px] lg:w-[400px] 
               mx-auto block
               border-pink-500 bg-transparent text-pink-50 rounded
             "
