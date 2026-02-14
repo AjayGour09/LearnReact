@@ -4,42 +4,48 @@ const CountryCard = ({ country }) => {
   const { flags, name, population, region, capital } = country;
 
   return (
-    <li className="border bg-[var(--color-background)] p-4 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 ">
-      
-      {/* Flag Image */}
-      <img
-        src={flags.png}
-        alt={flags.alt}
-        className="w-full h-48 md:h-40 object-cover rounded mt-5"
-      />
+    <li className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden 
+                   shadow-md hover:shadow-xl hover:-translate-y-1 
+                   transition-all duration-300 max-w-sm mx-auto w-full">
 
-      {/* Country Name */}
-      <p className="font-bold text-lg md:text-xl pt-2">
-        {name.common.length > 12
-          ? name.common.substring(0, 12) + "..."
-          : name.common}
-      </p>
+      {/* Flag */}
+      <div className="bg-slate-800 flex items-center justify-center p-4">
+        <img
+          src={flags.png}
+          alt={flags.alt}
+          className="h-32 object-contain"
+        />
+      </div>
 
-      {/* Country Details */}
-      <p className="text-sm text-gray-600 mt-1">
-        <b>Population:</b> {population.toLocaleString()}
-      </p>
-      <p className="text-sm text-gray-600">
-        <b>Region:</b> {region}
-      </p>
-      <p className="text-sm text-gray-600">
-        <b>Capital:</b> {capital ? capital[0] : "N/A"}
-      </p>
+      {/* Content */}
+      <div className="p-5">
 
-      {/* More Info Button */}
-      <div className="flex justify-center mt-4">
+        <h2 className="text-lg font-semibold text-white mb-3">
+          {name.common}
+        </h2>
+
+        <div className="space-y-1 text-sm text-gray-400">
+          <p>
+            <span className="text-gray-300 font-medium">Population:</span>{" "}
+            {population.toLocaleString()}
+          </p>
+          <p>
+            <span className="text-gray-300 font-medium">Region:</span> {region}
+          </p>
+          <p>
+            <span className="text-gray-300 font-medium">Capital:</span>{" "}
+            {capital ? capital[0] : "N/A"}
+          </p>
+        </div>
+
         <NavLink
           to={`/country/${name.common}`}
-          className="w-full text-center bg-[var(--color-primary)] text-white p-2 rounded-lg 
-                     hover:bg-blue-600 transition-colors duration-300"
+          className="mt-4 block text-center bg-indigo-600 hover:bg-indigo-700 
+                     text-white py-2 rounded-lg transition duration-300"
         >
           More Info
         </NavLink>
+
       </div>
     </li>
   );

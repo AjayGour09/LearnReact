@@ -50,97 +50,101 @@ const SignUp = () => {
       setIsLoading(false);
     }
   };
+return (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-black px-4">
+    
+    <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8">
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-10 bg-gray-100">
-      
-      <h2 className="text-2xl md:text-3xl text-pink-600 font-bold mb-6">
-        SignUp Page
+      <h2 className="text-3xl font-semibold text-center text-white mb-6">
+        Create Account
       </h2>
 
-      <form onSubmit={handleSubmit} onReset={clearForm} className="w-full max-w-md">
-        <div className="bg-green-900 rounded-lg p-6 border border-green-700 shadow-lg">
+      {message && (
+        <p className="text-center text-sm text-purple-300 mb-4">
+          {message}
+        </p>
+      )}
 
-          {message && (
-            <p className="text-center text-white mb-4">{message}</p>
-          )}
+      <form onSubmit={handleSubmit} onReset={clearForm} className="space-y-4">
 
-          {/* Username */}
-          <input
-            type="text"
-            name="Username"
-            placeholder="UserName"
-            value={formData.Username}
-            onChange={handleChange}
-            required
-            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
-          />
+        {/* Username */}
+        <input
+          type="text"
+          name="Username"
+          placeholder="Username"
+          value={formData.Username}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+        />
 
-          {/* Email */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
-          />
+        {/* Email */}
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+        />
 
-          {/* Phone */}
-          <input
-            type="number"
-            name="number"
-            placeholder="Phone"
-            value={formData.number}
-            onChange={handleChange}
-            required
-            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
-          />
+        {/* Phone */}
+        <input
+          type="number"
+          name="number"
+          placeholder="Phone Number"
+          value={formData.number}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+        />
 
-          {/* Password */}
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
-          />
+        {/* Password */}
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+        />
 
-          {/* Confirm Password */}
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-            className="w-full mb-3 p-3 rounded border border-green-700 text-amber-50 bg-transparent"
-          />
+        {/* Confirm Password */}
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+        />
 
-          {/* Buttons */}
-          <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full md:w-auto bg-blue-400 text-white rounded p-2 shadow hover:bg-blue-500"
-            >
-              {isLoading ? "Submitting..." : "Submit"}
-            </button>
+        {/* Buttons */}
+        <div className="flex gap-4 pt-2">
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 rounded-lg transition duration-300 disabled:opacity-50"
+          >
+            {isLoading ? "Creating..." : "Sign Up"}
+          </button>
 
-            <button
-              type="reset"
-              className="w-full md:w-auto bg-red-600 text-white rounded p-2 shadow hover:bg-red-700"
-            >
-              Reset
-            </button>
-          </div>
+          <button
+            type="reset"
+            className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-medium py-3 rounded-lg transition duration-300"
+          >
+            Reset
+          </button>
         </div>
+
       </form>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default SignUp;

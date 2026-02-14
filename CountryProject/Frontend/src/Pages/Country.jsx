@@ -45,50 +45,58 @@ export const Country = () => {
   };
 
   if (loading) return <h1>Loading...</h1>;
+return (
+  <div className="min-h-screen bg-slate-950 text-white px-6">
 
-  return (
-    <div className="bg-[var(--color-primary)] mt-10 px-4 md:px-8 lg:px-12">
+    <div className="max-w-7xl mx-auto pt-28 pb-12">
+
       {/* Search + Buttons */}
-      <div className="flex flex-col md:flex-row gap-4 md:gap-6 pt-6 md:pt-16">
+      <div className="flex flex-col lg:flex-row items-center gap-5 mb-16">
+
+        {/* Search Input */}
         <input
           type="text"
           placeholder="Search country..."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          className="
-            px-4 py-2 border border-amber-50 rounded
-            w-full md:w-[450px] mt-7 lg:w-[950px]
-            text-amber-50
-          "
+          className="w-full lg:flex-1 px-6 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
         />
-        <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+
+        {/* Buttons */}
+        <div className="flex gap-3">
           <button
             onClick={handleSearch}
-            className="px-4 py-2 bg-black text-white rounded w-full md:w-auto"
+            className="px-5 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 transition"
           >
             Search
           </button>
+
           <button
             onClick={sortAsc}
-            className="px-4 py-2 bg-blue-600 text-white rounded w-full md:w-auto"
+            className="px-5 py-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition"
           >
-            Country A → Z
+            A → Z
           </button>
+
           <button
             onClick={sortDesc}
-            className="px-4 py-2 bg-green-600 text-white rounded w-full md:w-auto"
+            className="px-5 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 transition"
           >
-            Country Z → A
+            Z → A
           </button>
         </div>
+
       </div>
 
       {/* Countries Grid */}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 p-4 md:p-12">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {filteredCountries.map((curCountry, index) => (
           <CountryCard country={curCountry} key={index} />
         ))}
       </ul>
+
     </div>
-  );
+  </div>
+);
+
 };

@@ -49,107 +49,106 @@ export const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center px-4 ">
-      <div
-        className="
-          flex items-center justify-center
-          mt-26 md:mt-20 m lg:mt-27
-          bg-green-900 border border-pink-500 rounded-[10px]
-          w-full md:w-[500px] lg:w-[460px] 
-          h-auto lg:h-[450px]
-        "
-      >
-        <form
-          onSubmit={handleSubmit}
-          onReset={handleClearForm}
-          className="w-full"
-        >
-          {responseMessage && (
-            <p className="text-center text-white mt-3 ">
-              {responseMessage}
-            </p>
-          )}
+  <div className="min-h-screen flex justify-center pt-24 bg-gradient-to-br from-green-900 via-green-800 to-black px-4">
 
-          {/* Inputs */}
+    <div className="w-full max-w-lg bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-8">
+      
+      <h2 className="text-3xl font-semibold text-center text-white mb-6">
+        Contact Us
+      </h2>
+
+      {responseMessage && (
+        <p className="text-center text-sm text-green-300 mb-4">
+          {responseMessage}
+        </p>
+      )}
+
+      <form onSubmit={handleSubmit} onReset={handleClearForm} className="space-y-5">
+
+        {/* Full Name */}
+        <div>
+          <label className="block text-sm text-gray-200 mb-1">
+            Full Name
+          </label>
           <input
             type="text"
             name="fullname"
-            placeholder="Enter your Name"
+            placeholder="John Doe"
             value={formData.fullname}
             onChange={handleChange}
             required
-            className="
-              border p-2 mt-5
-              w-[90%] md:w-[420px] lg:w-[400px]
-              mx-auto block
-              border-pink-500 bg-transparent text-pink-50 rounded
-            "
+            className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           />
+        </div>
 
+        {/* Email */}
+        <div>
+          <label className="block text-sm text-gray-200 mb-1">
+            Email Address
+          </label>
           <input
             type="email"
             name="email"
-            placeholder="Enter your Email"
+            placeholder="john@example.com"
             value={formData.email}
             onChange={handleChange}
             required
-            className="
-              border p-2 mt-5
-              w-[90%] md:w-[420px] lg:w-[400px] 
-              mx-auto block
-              border-pink-500 bg-transparent text-pink-50 rounded
-            "
+            className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           />
+        </div>
 
+        {/* Phone */}
+        <div>
+          <label className="block text-sm text-gray-200 mb-1">
+            Phone Number
+          </label>
           <input
             type="text"
             name="number"
-            placeholder="Enter your Phone Number"
+            placeholder="+91 9876543210"
             value={formData.number}
             onChange={handleChange}
             required
-            className="
-              border p-2 mt-5
-              w-[90%] md:w-[420px] lg:w-[400px]
-              mx-auto block
-              border-pink-500 bg-transparent text-pink-50 rounded
-            "
+            className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           />
+        </div>
 
+        {/* Message */}
+        <div>
+          <label className="block text-sm text-gray-200 mb-1">
+            Your Message
+          </label>
           <textarea
             name="message"
-            placeholder="Write Your Query Here.."
+            rows="4"
+            placeholder="Write your query here..."
             value={formData.message}
             onChange={handleChange}
             required
-            className="
-              border p-2 mt-5
-              w-[90%] md:w-[420px] lg:w-[400px]
-              h-28
-              mx-auto block
-              border-pink-500 bg-transparent text-pink-50 rounded
-            "
+            className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 focus:outline-none focus:ring-2 focus:ring-green-400 transition resize-none"
           />
+        </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="bg-blue-500 text-white p-2 rounded w-[90%] md:w-auto mx-auto"
-            >
-              {isLoading ? "Submitting..." : "Submit Data"}
-            </button>
+        {/* Buttons */}
+        <div className="flex gap-4 pt-2">
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-3 rounded-lg transition duration-300 disabled:opacity-50"
+          >
+            {isLoading ? "Submitting..." : "Submit"}
+          </button>
 
-            <button
-              type="reset"
-              className="bg-red-500 text-white p-2 rounded w-[90%] md:w-auto mx-auto"
-            >
-              Reset Data
-            </button>
-          </div>
-        </form>
-      </div>
+          <button
+            type="reset"
+            className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-3 rounded-lg transition duration-300"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
     </div>
-  );
+  </div>
+);
+
 };

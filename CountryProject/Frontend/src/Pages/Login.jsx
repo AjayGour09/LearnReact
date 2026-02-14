@@ -32,57 +32,71 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 md:px-8">
-      <form
-        onSubmit={submitData}
-        onReset={clearData}
-        className="w-full max-w-md bg-blue-700 border border-amber-50 rounded-lg p-6 shadow-lg"
-      >
-        {/* Email */}
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="border border-blue-900 text-amber-50 w-full p-3 rounded mb-4 bg-transparent"
-          />
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 px-4">
+      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8">
+        <h2 className="text-3xl font-semibold text-center text-white mb-6">
+          Welcome Back
+        </h2>
 
-        {/* Password */}
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Type Your Password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="border border-blue-900 text-amber-50 w-full p-3 rounded mb-4 bg-transparent"
-          />
-        </div>
+        <form onSubmit={submitData} onReset={clearData} className="space-y-5">
+          {/* Email */}
+          <div>
+            <label className="block text-sm text-gray-300 mb-1">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="john@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-400 border border-white/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            />
+          </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-4 mt-4">
-          <button
-            type="submit"
-            className="bg-green-500 text-white rounded p-2 w-full md:w-auto shadow-lg hover:bg-green-600"
-          >
-            {isLoading ? "Logging in..." : "Login"}
-          </button>
+          {/* Password */}
+          <div>
+            <label className="block text-sm text-gray-300 mb-1">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full p-3 rounded-lg bg-white/20 text-white placeholder-gray-400 border border-white/30 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            />
+          </div>
 
-          <button
-            type="reset"
-            className="bg-red-500 text-white rounded p-2 w-full md:w-auto shadow-lg hover:bg-red-600"
-          >
-            Clear Form
-          </button>
-        </div>
-      </form>
+          {/* Buttons */}
+          <div className="flex gap-4 pt-2">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-3 rounded-lg transition duration-300 disabled:opacity-50"
+            >
+              {isLoading ? "Logging in..." : "Login"}
+            </button>
+
+            <button
+              type="reset"
+              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-medium py-3 rounded-lg transition duration-300"
+            >
+              Clear
+            </button>
+          </div>
+        </form>
+
+        {/* Optional Footer */}
+        <p className="text-center text-gray-400 text-sm mt-6">
+          Don’t have an account?
+          <span className="text-cyan-400 cursor-pointer hover:underline ml-1">
+            Sign Up
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

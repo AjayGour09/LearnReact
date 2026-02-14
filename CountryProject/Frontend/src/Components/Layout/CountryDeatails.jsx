@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useTransition } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { getCountryIndData } from "../../API/postApi";
-import { NavLink } from "react-router-dom";
 
 const CountryDetails = () => {
   const { id } = useParams();
@@ -17,46 +16,76 @@ const CountryDetails = () => {
     });
   }, [id]);
 
-  if (!country) return <p className="text-center mt-20">Loading...</p>;
+  if (!country)
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white">
+        Loading...
+      </div>
+    );
 
   return (
-    <section className="mt-20 px-4 md:px-10">
-      <div className="flex flex-col md:flex-row md:gap-10 items-center md:items-start">
+    <section className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-6 pt-28 pb-20 animate-fadeIn">
 
-        {/* Flag Image */}
-        <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img
-            src={country.flags.png}
-            alt={country.flags.alt}
-            className="w-full h-auto rounded shadow-lg"
-          />
-        </div>
+      <div className="max-w-6xl mx-auto">
 
-        {/* Country Info */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className="font-bold text-2xl md:text-3xl mb-4">{country.name.official}</h2>
-          
-          <p className="text-lg md:text-xl mb-2">
-            <span className="font-semibold">Capital:</span> {country.capital ? country.capital[0] : "N/A"}
-          </p>
-          
-          <p className="text-lg md:text-xl mb-2">
-            <span className="font-semibold">Population:</span> {country.population.toLocaleString()}
-          </p>
+        <div className="grid md:grid-cols-2 gap-16 items-center">
 
-          <p className="text-lg md:text-xl mb-2">
-            <span className="font-semibold">Region:</span> {country.region}
-          </p>
+          {/* Flag Card */}
+          <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 
+                          rounded-3xl p-8 shadow-2xl 
+                          hover:shadow-indigo-500/20 transition-all duration-500">
 
-          <div className="flex justify-center md:justify-start mt-6">
+            <img
+              src={country.flags.png}
+              alt={country.flags.alt}
+              className="w-full h-80 object-contain animate-float"
+            />
+          </div>
+
+          {/* Info Section */}
+          <div className="space-y-6">
+
+            <h2 className="text-4xl font-bold tracking-wide">
+              {country.name.official}
+            </h2>
+
+            <div className="space-y-3 text-lg text-gray-300">
+              <p>
+                <span className="font-semibold text-white">Capital:</span>{" "}
+                {country.capital ? country.capital[0] : "N/A"}
+              </p>
+
+              <p>
+                <span className="font-semibold text-white">Population:</span>{" "}
+                {country.population.toLocaleString()}
+              </p>
+
+              <p>
+                <span className="font-semibold text-white">Region:</span>{" "}
+                {country.region}
+              </p>
+
+              <p>
+                <span className="font-semibold text-white">Sub Region:</span>{" "}
+                {country.subregion}
+              </p>
+            </div>
+
             <NavLink
               to="/country"
-              className="bg-[var(--color-primary)] text-white p-2 rounded-lg w-48 text-center hover:bg-blue-600 transition-colors"
+              className="inline-block mt-8 px-7 py-3 rounded-2xl 
+                         bg-gradient-to-r from-indigo-600 to-blue-600
+                         hover:from-indigo-500 hover:to-blue-500
+                         transition-all duration-300 
+                         hover:scale-105 hover:shadow-lg"
             >
-              Back To Browsing
+              ← Back To Browsing
             </NavLink>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );

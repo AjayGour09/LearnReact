@@ -1,82 +1,143 @@
 import { NavLink } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
-import { SiWebpack } from "react-icons/si";
-import { AiOutlineGlobal } from "react-icons/ai";
-import { IoIosContact } from "react-icons/io";
-import { SiGnuprivacyguard } from "react-icons/si";
-import { CiLogin } from "react-icons/ci";
-import logo from "../../assets/logo.png";
 import { useState } from "react";
+import { FaGlobeAsia } from "react-icons/fa";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-20 bg-gray-700 shadow">
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between py-3">
-        
-        {/* Logo */}
-        <NavLink to="/">
-          <img src={logo} alt="world logo" className="w-12 rounded-full animate-pulse" />
-        </NavLink>
+  const navLink = "text-gray-300 hover:text-white transition duration-200";
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-8 text-white font-semibold">
-          <NavLink to="/" className="flex items-center gap-1 hover:text-blue-300">
-            <AiOutlineHome /> Home
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900 shadow-md">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative">
+        {/* LEFT - LOGO */}
+  <NavLink to="/" className="flex items-center gap-3 group">
+
+  {/* SVG LOGO MARK */}
+  <div className="relative w-10 h-10">
+
+    <svg
+      viewBox="0 0 100 100"
+      className="w-full h-full transition duration-500 group-hover:rotate-12"
+    >
+      <defs>
+        <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#6366f1" />
+          <stop offset="100%" stopColor="#3b82f6" />
+        </linearGradient>
+      </defs>
+
+      {/* Outer Circle */}
+      <circle
+        cx="50"
+        cy="50"
+        r="45"
+        stroke="url(#globeGradient)"
+        strokeWidth="6"
+        fill="none"
+      />
+
+      {/* Longitude Lines */}
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="25"
+        ry="45"
+        stroke="url(#globeGradient)"
+        strokeWidth="3"
+        fill="none"
+      />
+
+      <ellipse
+        cx="50"
+        cy="50"
+        rx="45"
+        ry="20"
+        stroke="url(#globeGradient)"
+        strokeWidth="3"
+        fill="none"
+      />
+    </svg>
+  </div>
+
+  {/* BRAND TEXT */}
+  <div className="flex flex-col leading-tight">
+    <span className="text-white font-bold text-lg tracking-wide">
+      Desh-Videsh
+    </span>
+    <span className="text-indigo-500 text-sm tracking-widest uppercase">
+      Darpan
+    </span>
+  </div>
+
+</NavLink>
+
+
+        {/* CENTER - NAVIGATION */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium absolute left-1/2 transform -translate-x-1/2">
+          <NavLink to="/" className={navLink}>
+            Home
           </NavLink>
-          <NavLink to="about" className="flex items-center gap-1 hover:text-blue-300">
-            <SiWebpack /> About
+          <NavLink to="about" className={navLink}>
+            About
           </NavLink>
-          <NavLink to="country" className="flex items-center gap-1 hover:text-blue-300">
-            <AiOutlineGlobal /> Country
+          <NavLink to="country" className={navLink}>
+            Country
           </NavLink>
-          <NavLink to="contact" className="flex items-center gap-1 hover:text-blue-300">
-            <IoIosContact /> Contact
+          <NavLink to="contact" className={navLink}>
+            Contact
           </NavLink>
         </nav>
 
-        {/* Auth Links */}
-        <div className="hidden md:flex gap-4 items-center">
-          <NavLink to="signup" className="flex items-center gap-1 text-blue-100 hover:text-blue-300">
-            <SiGnuprivacyguard /> SignUp
+        {/* RIGHT - AUTH */}
+        <div className="hidden md:flex items-center gap-4 text-sm font-medium">
+          <NavLink
+            to="signup"
+            className="px-4 py-2 rounded-md border border-gray-600 
+                       text-gray-300 hover:bg-gray-800 transition"
+          >
+            SignUp
           </NavLink>
-          <NavLink to="login" className="flex items-center gap-1 text-red-400 font-bold hover:text-red-500">
-            <CiLogin /> Login
+
+          <NavLink
+            to="login"
+            className="px-4 py-2 rounded-md 
+                       bg-indigo-600 hover:bg-indigo-700 
+                       text-white transition"
+          >
+            Login
           </NavLink>
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
-          >
-            {isOpen ? "✖" : "☰"}
-          </button>
-        </div>
+        {/* MOBILE BUTTON */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white text-2xl"
+        >
+          {isOpen ? "✕" : "☰"}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {isOpen && (
-        <div className="md:hidden bg-gray-700 px-4 pb-4 space-y-3">
-          <NavLink to="/" className="block text-white flex items-center gap-1">
-            <AiOutlineHome /> Home
+        <div className="md:hidden bg-slate-900 px-6 pb-6 space-y-4 text-gray-300 text-sm">
+          <NavLink to="/" onClick={() => setIsOpen(false)}>
+            Home
           </NavLink>
-          <NavLink to="about" className="block text-white flex items-center gap-1">
-            <SiWebpack /> About
+          <NavLink to="about" onClick={() => setIsOpen(false)}>
+            About
           </NavLink>
-          <NavLink to="country" className="block text-white flex items-center gap-1">
-            <AiOutlineGlobal /> Country
+          <NavLink to="country" onClick={() => setIsOpen(false)}>
+            Country
           </NavLink>
-          <NavLink to="contact" className="block text-white flex items-center gap-1">
-            <IoIosContact /> Contact
+          <NavLink to="contact" onClick={() => setIsOpen(false)}>
+            Contact
           </NavLink>
-          <NavLink to="signup" className="block text-white flex items-center gap-1">
-            <SiGnuprivacyguard /> SignUp
+          <NavLink to="signup" onClick={() => setIsOpen(false)}>
+            SignUp
           </NavLink>
-          <NavLink to="login" className="block text-red-400 flex items-center gap-1 font-bold">
-            <CiLogin /> Login
+          <NavLink to="login" onClick={() => setIsOpen(false)}>
+            Login
           </NavLink>
         </div>
       )}

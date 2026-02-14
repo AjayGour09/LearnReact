@@ -4,37 +4,63 @@ import { NavLink } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div className="flex flex-col-reverse lg:flex-row items-center justify-center lg:justify-around px-4 md:px-8 py-10">
+    <div className="bg-slate-950 text-white overflow-hidden">
       
-      {/* Left Section */}
-      <div className="text-center lg:text-left lg:w-1/2">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-          Explore the world, One <br />
-          Country at a Time
-        </h2>
+      <section className="min-h-screen flex items-center">
+        
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 w-full flex flex-col-reverse lg:flex-row items-center gap-14">
+          
+          {/* Left Content */}
+          <div className="lg:w-1/2 text-center lg:text-left space-y-6">
 
-        <p className="text-base md:text-lg mt-5 text-gray-700">
-          Discover the History, Culture and beauty of every nation, Sort,
-          Search and 
-          <span>filter through Countries to find the details you need.</span>
-        </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-snug">
+              Explore the World
+              <span className="block bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent mt-2">
+                One Country at a Time
+              </span>
+            </h1>
 
-        <div className="mt-6 flex justify-center lg:justify-start">
-          <NavLink to="/country">
-            <div className="flex gap-3 border border-blue-900 px-4 py-2 rounded-2xl animate-pulse text-red-900 items-center">
-              <button className="hover:cursor-pointer">
-                Start Exploring
-              </button>
-              <GoArrowRight className="mt-1" />
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-lg mx-auto lg:mx-0">
+              Discover history, culture and beauty of every nation.
+              Search, filter and explore countries instantly with
+              clean structured data.
+            </p>
+
+            <div className="flex justify-center lg:justify-start pt-4">
+              <NavLink to="/country">
+                <button className="group relative inline-flex items-center gap-3 px-7 py-3 rounded-xl text-base font-medium bg-indigo-600 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                  
+                  {/* Glow Effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-20 blur-xl transition duration-500"></span>
+
+                  <span className="relative flex items-center gap-2">
+                    Start Exploring
+                    <GoArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+
+                </button>
+              </NavLink>
             </div>
-          </NavLink>
-        </div>
-      </div>
 
-      {/* Right Section */}
-      <div className="w-full md:w-3/4 lg:w-[550px] rounded-2xl mb-10 mt-[60px] lg:mb-0">
-        <img src={iimg} alt="world Image" className="w-full h-auto rounded-3xl" />
-      </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="lg:w-1/2 flex justify-center relative">
+
+            {/* Glow */}
+            <div className="absolute w-72 h-72 bg-indigo-600 opacity-20 blur-3xl rounded-full animate-pulse"></div>
+
+            <img
+              src={iimg}
+              alt="World"
+              className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg rounded-3xl shadow-2xl object-cover transition-transform duration-700 hover:scale-105 hover:rotate-1"
+            />
+          </div>
+
+        </div>
+
+      </section>
     </div>
   );
 };
+
