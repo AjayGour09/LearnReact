@@ -33,7 +33,7 @@ export const Home = () => {
                   {/* Glow Effect */}
                   <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-20 blur-xl transition duration-500"></span>
 
-                  <span className="relative flex items-center gap-2">
+                  <span className="relative flex items-center gap-3">
                     Start Exploring
                     <GoArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
